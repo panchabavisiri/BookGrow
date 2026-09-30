@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BookGrow | Discover Your Next Favorite Read</title>
+    <meta
+      name="description"
+      content="BookGrow is a modern online bookstore with curated genres, bestselling books, and a personalized shopping experience."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav">
+        <div class="brand-wrap">
+          <div class="brand-mark">B</div>
+          <div>
+            <p class="brand-name">BookGrow</p>
+          </div>
+        </div>
+        <nav class="nav-links">
+          <a href="#home">Home</a>
+          <a href="#genres">Genres</a>
+          <a href="#catalog">Books</a>
+          <a href="#cart">Cart</a>
+        </nav>
+        <button class="nav-button">Join Club</button>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="hero">
+        <div class="container hero-content">
+          <div class="hero-copy">
+            <p class="eyebrow">A place where stories grow</p>
+            <h1>Turn every page into a brighter idea.</h1>
+            <div class="quote-box">
+              <p>
+                “Reading gives us someplace to go when we have to stay where we are.”
+              </p>
+              <span>— Mason Cooley</span>
+            </div>
+            <div class="hero-actions">
+              <a href="#genres" class="primary-btn">Explore Books</a>
+              <a href="#catalog" class="secondary-btn">Browse Collection</a>
+            </div>
+            <div class="hero-stats">
+              <div>
+                <strong>40k+</strong>
+                <span>Readers</span>
+              </div>
+              <div>
+                <strong>2k+</strong>
+                <span>Titles</span>
+              </div>
+              <div>
+                <strong>4.9/5</strong>
+                <span>Reader Rating</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="book-stack">
+              <div class="book-card top-book">
+                <span class="mini-tag">Bestseller</span>
+                <h3>The Midnight Library</h3>
+                <p>Matt Haig</p>
+              </div>
+              <div class="book-card mid-book">
+                <span class="mini-tag">Mystery</span>
+                <h3>Silent Echoes</h3>
+                <p>Ria Moren</p>
+              </div>
+              <div class="book-card bottom-book">
+                <span class="mini-tag">Fantasy</span>
+                <h3>Wings of Dawn</h3>
+                <p>Elena Hart</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="genres" class="genre-section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Pick a genre</p>
+            <h2>What do you want to read today?</h2>
+          </div>
+
+          <div class="genre-picker" id="genre-picker">
+            <button class="genre-button active" data-genre="All">All</button>
+            <button class="genre-button" data-genre="Fiction">Fiction</button>
+            <button class="genre-button" data-genre="Fantasy">Fantasy</button>
+            <button class="genre-button" data-genre="Mystery">Mystery</button>
+            <button class="genre-button" data-genre="Self-Help">Self-Help</button>
+            <button class="genre-button" data-genre="Biography">Biography</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="catalog" class="catalog-section">
+        <div class="container catalog-wrap">
+          <div class="section-heading catalog-header">
+            <div>
+              <p class="eyebrow">Curated collection</p>
+              <h2>Trending books</h2>
+            </div>
+            <div class="cart-summary" id="cart">
+              <span>Cart</span>
+              <strong id="cart-count">0 items</strong>
+            </div>
+          </div>
+
+          <div id="book-list" class="book-grid"></div>
+        </div>
+      </section>
+
+      <section id="reading-assistant" class="assistant-section">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Local AI reading companion</p>
+              <h2>Find your next good read</h2>
+            </div>
+          </div>
+
+          <div class="assistant-panel">
+            <div class="assistant-status">
+              <span class="status-indicator" aria-hidden="true"></span>
+              <span id="chat-status" role="status" aria-live="polite">Ready · llama3.2</span>
+            </div>
+            <div id="chat-messages" class="chat-messages" role="log" aria-live="polite" aria-relevant="additions">
+              <div class="chat-message assistant-message">
+                <span class="chat-speaker">BookGrow</span>
+                <p>Hi! Tell me what you enjoy reading, and I’ll help you find a book.</p>
+              </div>
+            </div>
+            <form id="chat-form" class="chat-form">
+              <label class="visually-hidden" for="chat-input">Message your reading companion</label>
+              <textarea id="chat-input" rows="2" maxlength="2000" placeholder="What would you like to read?" required></textarea>
+              <button id="chat-send" type="submit">Send</button>
+            </form>
+            <p class="assistant-note">Responses are generated locally with Ollama.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <aside class="cart-panel" aria-live="polite">
+      <div class="cart-panel-header">
+        <h3>Your cart</h3>
+        <span id="panel-item-count">0</span>
+      </div>
+      <ul id="cart-items"></ul>
+      <div class="cart-total-row">
+        <span>Total</span>
+        <strong>₹<span id="cart-total">0</span></strong>
+      </div>
+      <button class="checkout-btn" id="checkout-btn">Checkout</button>
+    </aside>
+
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <p>© 2026 BookGrow. Grow your library.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
